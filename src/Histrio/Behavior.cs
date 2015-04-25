@@ -3,7 +3,7 @@ namespace Histrio
     /// <summary>
     ///     A base class for implementing behaviors that get injected into Actors
     /// </summary>
-    public abstract class BehaviorBase : Observer
+    public abstract class Behavior : Observer
     {
         /// <summary>
         ///     Gets or sets the actor the behavior is injected to. Use this reference to create new Actors,

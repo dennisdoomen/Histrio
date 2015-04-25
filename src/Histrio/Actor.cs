@@ -4,9 +4,9 @@ namespace Histrio
 {
     internal class Actor : IActor
     {
-        private BehaviorBase _behavior;
+        private Behavior _behavior;
 
-        private Actor(BehaviorBase behavior, Address address, MailBox mailBox, Theater theater)
+        private Actor(Behavior behavior, Address address, MailBox mailBox, Theater theater)
         {
             _behavior = behavior;
             Address = address;
@@ -45,14 +45,14 @@ namespace Histrio
             _behavior = new SendBehavior(address) {Actor = this};
         }
 
-        public Address Create(BehaviorBase behavior)
+        public Address Create(Behavior behavior)
         {
             return Theater.CreateActor(behavior);
         }
 
         public Address Address { get; private set; }
 
-        public static Address Create(BehaviorBase behavior, string name, MailBox mailBox, Theater theater)
+        public static Address Create(Behavior behavior, string name, MailBox mailBox, Theater theater)
         {
             var address = new Address(name);
             new Actor(behavior, address, mailBox, theater);

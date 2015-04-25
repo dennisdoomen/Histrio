@@ -2,7 +2,7 @@ using System;
 
 namespace Histrio.Tests.Factorial
 {
-    public class FactorialContinuationBehavior : BehaviorBase, IObserver<CalculateFactorialFor>,
+    public class FactorialContinuationBehavior : Behavior, IObserver<CalculateFactorialFor>,
         IObserver<FactorialCalculated>
     {
         private readonly Address _customer;
