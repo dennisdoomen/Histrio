@@ -1,3 +1,5 @@
+using System;
+
 namespace Histrio.Tests.Factorial
 {
     public class FactorialCalculationBehavior : BehaviorBase, IObserver<CalculateFactorialFor>
@@ -19,6 +21,16 @@ namespace Histrio.Tests.Factorial
                 var calculateFactorialFor = new CalculateFactorialFor(x - 1, continuation);
                 Actor.Send(calculateFactorialFor, Actor.Address);
             }
+        }
+
+        public void OnError(Exception error)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnCompleted()
+        {
+            throw new NotImplementedException();
         }
     }
 }

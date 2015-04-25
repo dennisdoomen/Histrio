@@ -1,4 +1,6 @@
-﻿namespace Histrio
+﻿using System;
+
+namespace Histrio
 {
     /// <summary>
     ///     A Cell behaves like a property. One can get en set value in / from it using message passing
@@ -16,6 +18,26 @@
         {
             var reply = new Reply<T>(_contents);
             Actor.Send(reply, message.Customer);
+        }
+
+        void IObserver<Get>.OnError(Exception error)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IObserver<Set<T>>.OnCompleted()
+        {
+            throw new NotImplementedException();
+        }
+
+        void IObserver<Set<T>>.OnError(Exception error)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IObserver<Get>.OnCompleted()
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>

@@ -21,10 +21,10 @@ namespace Histrio
         /// </exception>
         public virtual void OnNext<T>(Observable<T> message)
         {
-            var handler = this as IObserver<T>;
-            if (handler != null)
+            var observer = this as IObserver<T>;
+            if (observer != null)
             {
-                message.GetHandledBy(handler);
+                message.GetHandledBy(observer);
             }
             else
             {
