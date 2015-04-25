@@ -1,8 +1,8 @@
 namespace Histrio.Tests.Factorial
 {
-    public class FactorialCalculationBehavior : BehaviorBase, IHandle<CalculateFactorialFor>
+    public class FactorialCalculationBehavior : BehaviorBase, IObserver<CalculateFactorialFor>
     {
-        public void Accept(CalculateFactorialFor message)
+        public void OnNext(CalculateFactorialFor message)
         {
             var address = Actor.Create(new FactorialCalculationBehavior());
             Actor.Become(address);

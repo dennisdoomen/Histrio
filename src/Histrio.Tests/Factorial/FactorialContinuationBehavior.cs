@@ -1,7 +1,7 @@
 namespace Histrio.Tests.Factorial
 {
-    public class FactorialContinuationBehavior : BehaviorBase, IHandle<CalculateFactorialFor>,
-        IHandle<FactorialCalculated>
+    public class FactorialContinuationBehavior : BehaviorBase, IObserver<CalculateFactorialFor>,
+        IObserver<FactorialCalculated>
     {
         private readonly Address _customer;
         private readonly int _x;
@@ -12,7 +12,7 @@ namespace Histrio.Tests.Factorial
             _customer = message.Customer;
         }
 
-        public void Accept(CalculateFactorialFor message)
+        public void OnNext(CalculateFactorialFor message)
         {
             var factorialCalculated = new FactorialCalculated
             {
@@ -22,7 +22,7 @@ namespace Histrio.Tests.Factorial
             SendFactorialCalculated(factorialCalculated);
         }
 
-        public void Accept(FactorialCalculated message)
+        public void OnNext(FactorialCalculated message)
         {
             var factorialCalculated = new FactorialCalculated
             {

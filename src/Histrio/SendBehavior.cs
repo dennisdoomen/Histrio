@@ -17,15 +17,15 @@ namespace Histrio
         }
 
         /// <summary>
-        ///     Overrides the behavior of the BehaviorBase, so that it doesn't check if it can handle the message.
-        ///     It doesn't need to know the type of the message because it only forwards it
+        /// Accepts the specified message and checkes if the message can be handled by this behavior.
+        /// If so, it notifies the message it can be handled. It uses a double dispatch to let the message
+        /// handle itself in a strongly typed fashion by the behavior
         /// </summary>
         /// <typeparam name="T">The type of content the message enbodies</typeparam>
         /// <param name="message">The message.</param>
-        public override void Accept<T>(Message<T> message)
+        public override void OnNext<T>(Observable<T> message)
         {
-            message.To = _address;
-            Actor.Send(message);
+            Actor.Send(message.Subject, _address);
         }
     }
 }

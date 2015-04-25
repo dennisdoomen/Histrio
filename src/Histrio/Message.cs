@@ -5,24 +5,16 @@ namespace Histrio
     ///     using POCO (Plain Old CLR Objects).
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class Message<T> : IMessage
+    public class Message<T> : Observable<T>, IMessage
     {
         /// <summary>
         ///     Initializes a new instance of the <see cref="Message{T}" /> class.
         /// </summary>
-        /// <param name="body">The body.</param>
-        public Message(T body)
+        /// <param name="subject">The Subject.</param>
+        public Message(T subject)
         {
-            Body = body;
+            Subject = subject;
         }
-
-        /// <summary>
-        ///     Gets or sets the body.
-        /// </summary>
-        /// <value>
-        ///     The body.
-        /// </value>
-        public T Body { get; private set; }
 
         /// <summary>
         ///     Gets or sets the <see cref="Address" /> of the Actor that is the recipient of this message
@@ -31,23 +23,5 @@ namespace Histrio
         ///     To.
         /// </value>
         public Address To { get; set; }
-
-        /// <summary>
-        ///     Gets the handled by.
-        /// </summary>
-        /// <param name="behavior">The behavior.</param>
-        public void GetHandledBy(BehaviorBase behavior)
-        {
-            behavior.Accept(this);
-        }
-
-        /// <summary>
-        ///     Gets the handled by.
-        /// </summary>
-        /// <param name="behavior">The behavior.</param>
-        internal void GetHandledBy(IHandle<T> behavior)
-        {
-            behavior.Accept(Body);
-        }
     }
 }
