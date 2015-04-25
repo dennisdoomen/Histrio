@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -44,6 +45,25 @@ namespace Histrio.Testing
             {
                 _taskCompletionSource.SetResult(message);
             }
+        }
+
+        /// <summary>
+        /// Called when [error].
+        /// </summary>
+        /// <param name="error">The error.</param>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public void OnError(Exception error)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Notifies the observer that the provider has finished sending push-based notifications.
+        /// </summary>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public void OnCompleted()
+        {
+            throw new NotImplementedException();
         }
     }
 }

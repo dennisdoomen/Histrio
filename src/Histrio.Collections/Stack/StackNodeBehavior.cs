@@ -1,3 +1,5 @@
+using System;
+
 namespace Histrio.Collections.Stack
 {
     /// <summary>
@@ -30,6 +32,16 @@ namespace Histrio.Collections.Stack
             Actor.Send(_content, message.Customer);
         }
 
+        void IObserver<Pop>.OnError(Exception error)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IObserver<Pop>.OnCompleted()
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         ///     Accepts the specified message. OnNext is Actor Model terminology for "I can do something with this message"
         /// </summary>
@@ -40,6 +52,16 @@ namespace Histrio.Collections.Stack
             var stackNodeBehavior = new StackNodeBehavior<T>(message.Value, p);
             var stackNode = Actor.Create(stackNodeBehavior);
             Actor.Become(stackNode);
+        }
+
+        void IObserver<Push<T>>.OnError(Exception error)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IObserver<Push<T>>.OnCompleted()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,3 +1,5 @@
+using System;
+
 namespace Histrio.Tests.Factorial
 {
     public class FactorialContinuationBehavior : BehaviorBase, IObserver<CalculateFactorialFor>,
@@ -20,6 +22,26 @@ namespace Histrio.Tests.Factorial
                 Result = _x*message.X
             };
             SendFactorialCalculated(factorialCalculated);
+        }
+
+        void IObserver<CalculateFactorialFor>.OnError(Exception error)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IObserver<FactorialCalculated>.OnCompleted()
+        {
+            throw new NotImplementedException();
+        }
+
+        void IObserver<FactorialCalculated>.OnError(Exception error)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IObserver<CalculateFactorialFor>.OnCompleted()
+        {
+            throw new NotImplementedException();
         }
 
         public void OnNext(FactorialCalculated message)
