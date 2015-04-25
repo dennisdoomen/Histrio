@@ -17,9 +17,9 @@ namespace Histrio
         }
 
         /// <summary>
-        /// Accepts the specified message and checkes if the message can be handled by this behavior.
-        /// If so, it notifies the message it can be handled. It uses a double dispatch to let the message
-        /// handle itself in a strongly typed fashion by the behavior
+        ///     Accepts the specified message and checkes if the message can be handled by this behavior.
+        ///     If so, it notifies the message it can be handled. It uses a double dispatch to let the message
+        ///     handle itself in a strongly typed fashion by the behavior
         /// </summary>
         /// <typeparam name="T">The type of content the message enbodies</typeparam>
         /// <param name="message">The message.</param>

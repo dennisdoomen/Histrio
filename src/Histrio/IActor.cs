@@ -35,7 +35,6 @@ namespace Histrio
         void Send<T>(Message<T> message);
 
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="messageContent"></param>
         /// <param name="to"></param>
@@ -43,7 +42,6 @@ namespace Histrio
         void Send<T>(T messageContent, Address to);
 
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="messageContent"></param>
         /// <param name="actorName"></param>

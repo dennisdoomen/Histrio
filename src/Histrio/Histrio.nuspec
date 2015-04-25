@@ -10,7 +10,8 @@
         <projectUrl>https://github.com/MCGPPeters/Histrio</projectUrl>
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
         <description>A library for implementing systems based on the Actor Model</description>
-        <releaseNotes />
+        <releaseNotes>Breaking change. The IHandle{T} interface has been removed in favour of IObserver{T}
+      </releaseNotes>
         <copyright>Copyright 2015</copyright>
         <tags>Actor System</tags>
     </metadata>
