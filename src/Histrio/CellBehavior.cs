@@ -6,7 +6,7 @@ namespace Histrio
     ///     A Cell behaves like a property. One can get en set value in / from it using message passing
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class CellBehavior<T> : BehaviorBase, IObserver<Get>, IObserver<Set<T>>
+    public class CellBehavior<T> : Behavior, IObserver<Get>, IObserver<Set<T>>
     {
         private T _contents;
 

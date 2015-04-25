@@ -16,7 +16,7 @@ namespace Histrio.Testing
     ///     on the result of the task (representing the message)
     /// </summary>
     /// <typeparam name="TMessage">The type of the message.</typeparam>
-    public class AssertionBehavior<TMessage> : BehaviorBase, IObserver<TMessage>
+    public class AssertionBehavior<TMessage> : Behavior, IObserver<TMessage>
     {
         private readonly int _numberOfExpectedMessagesWhereAfterToComplete;
         private readonly TaskCompletionSource<TMessage> _taskCompletionSource;

@@ -2,7 +2,7 @@ using System;
 
 namespace Histrio.Tests.Factorial
 {
-    public class FactorialCalculationBehavior : BehaviorBase, IObserver<CalculateFactorialFor>
+    public class FactorialCalculationBehavior : Behavior, IObserver<CalculateFactorialFor>
     {
         public void OnNext(CalculateFactorialFor message)
         {
