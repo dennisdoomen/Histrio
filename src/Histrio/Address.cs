@@ -9,7 +9,6 @@ namespace Histrio
         ///     Initializes a new instance of the <see cref="Address" /> class.
         /// </summary>
         /// <param name="actorName">Name of the actor. An actor name should be a unique reference to a specific Actor at runtime</param>
-        /// 
         public Address(string actorName)
         {
             // For deserialization purposes, keep this contructor public

@@ -1,8 +1,6 @@
 namespace Histrio
 {
-
     /// <summary>
-    /// 
     /// </summary>
     public interface IObserver
     {

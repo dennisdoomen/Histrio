@@ -3,7 +3,6 @@ using System;
 namespace Histrio
 {
     /// <summary>
-    /// 
     /// </summary>
     public abstract class Observer : IObserver
     {

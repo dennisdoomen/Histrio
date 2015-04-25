@@ -4,13 +4,6 @@ namespace Histrio
 {
     internal class Actor : IActor
     {
-        public static Address Create(BehaviorBase behavior, string name, MailBox mailBox, Theater theater)
-        {
-            var address = new Address(name);
-            new Actor(behavior, address, mailBox, theater);
-            return address;
-        }
-
         private BehaviorBase _behavior;
 
         private Actor(BehaviorBase behavior, Address address, MailBox mailBox, Theater theater)
@@ -58,5 +51,12 @@ namespace Histrio
         }
 
         public Address Address { get; private set; }
+
+        public static Address Create(BehaviorBase behavior, string name, MailBox mailBox, Theater theater)
+        {
+            var address = new Address(name);
+            new Actor(behavior, address, mailBox, theater);
+            return address;
+        }
     }
 }

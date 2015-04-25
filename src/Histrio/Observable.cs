@@ -3,7 +3,6 @@ using System;
 namespace Histrio
 {
     /// <summary>
-    /// 
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class Observable<T> : IObservable<T>
@@ -15,6 +14,17 @@ namespace Histrio
         ///     The Subject.
         /// </value>
         public T Subject { get; protected set; }
+
+        /// <summary>
+        ///     Subscribes the specified observer.
+        /// </summary>
+        /// <param name="observer">The observer.</param>
+        /// <returns></returns>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public IDisposable Subscribe(IObserver<T> observer)
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         ///     Gets the handled by.
@@ -32,17 +42,6 @@ namespace Histrio
         public void GetHandledBy(IObserver observer)
         {
             observer.OnNext(this);
-        }
-
-        /// <summary>
-        /// Subscribes the specified observer.
-        /// </summary>
-        /// <param name="observer">The observer.</param>
-        /// <returns></returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public IDisposable Subscribe(IObserver<T> observer)
-        {
-            throw new NotImplementedException();
         }
     }
 }

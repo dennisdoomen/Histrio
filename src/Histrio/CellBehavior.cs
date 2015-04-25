@@ -25,17 +25,17 @@ namespace Histrio
             throw new NotImplementedException();
         }
 
+        void IObserver<Get>.OnCompleted()
+        {
+            throw new NotImplementedException();
+        }
+
         void IObserver<Set<T>>.OnCompleted()
         {
             throw new NotImplementedException();
         }
 
         void IObserver<Set<T>>.OnError(Exception error)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IObserver<Get>.OnCompleted()
         {
             throw new NotImplementedException();
         }
