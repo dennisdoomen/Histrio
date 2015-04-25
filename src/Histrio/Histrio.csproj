@@ -52,12 +52,14 @@
     <Compile Include="MailBox.cs" />
     <Compile Include="IActor.cs" />
     <Compile Include="IActorNamingService.cs" />
-    <Compile Include="IHandle.cs" />
+    <Compile Include="IObserver.cs" />
     <Compile Include="IDispatcher.cs" />
     <Compile Include="IMessage.cs" />
     <Compile Include="InMemoryActorNamingService.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="MessageExtensions.cs" />
+    <Compile Include="Observable.cs" />
+    <Compile Include="Observer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reply.cs" />
     <Compile Include="SendBehavior.cs" />

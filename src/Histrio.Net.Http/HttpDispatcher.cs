@@ -39,8 +39,8 @@ namespace Histrio.Net.Http
         /// <param name="actorLocation">The actor location.</param>
         public async void Dispatch<T>(Message<T> message, Uri actorLocation)
         {
-            var untypedMessage = new UntypedMessage(message.Body.GetType().AssemblyQualifiedName,
-                message.To.ActorName, message.Body);
+            var untypedMessage = new UntypedMessage(message.Subject.GetType().AssemblyQualifiedName,
+                message.To.ActorName, message.Subject);
 
             await _httpClient.PostAsJsonAsync(actorLocation, untypedMessage);
 

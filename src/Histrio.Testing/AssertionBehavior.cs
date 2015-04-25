@@ -15,7 +15,7 @@ namespace Histrio.Testing
     ///     on the result of the task (representing the message)
     /// </summary>
     /// <typeparam name="TMessage">The type of the message.</typeparam>
-    public class AssertionBehavior<TMessage> : BehaviorBase, IHandle<TMessage>
+    public class AssertionBehavior<TMessage> : BehaviorBase, IObserver<TMessage>
     {
         private readonly int _numberOfExpectedMessagesWhereAfterToComplete;
         private readonly TaskCompletionSource<TMessage> _taskCompletionSource;
@@ -34,10 +34,10 @@ namespace Histrio.Testing
         }
 
         /// <summary>
-        ///     Accepts the specified message. Accept is Actor Model terminology for "I can do something with this message"
+        ///     Accepts the specified message. OnNext is Actor Model terminology for "I can do something with this message"
         /// </summary>
         /// <param name="message">The message.</param>
-        public void Accept(TMessage message)
+        public void OnNext(TMessage message)
         {
             Interlocked.Increment(ref _numberOfMessagesReceived);
             if (_numberOfMessagesReceived == _numberOfExpectedMessagesWhereAfterToComplete)
