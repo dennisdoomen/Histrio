@@ -5,15 +5,24 @@ namespace Histrio
     /// <summary>
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class Observable<T> : IObservable<T>
+    public class Observable<T> : IObservable<T>, IObservable
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Observable{T}"/> class.
+        /// </summary>
+        /// <param name="subject">The subject.</param>
+        protected Observable(T subject)
+        {
+            Subject = subject;
+        }
+
         /// <summary>
         ///     Gets or sets the Subject.
         /// </summary>
         /// <value>
         ///     The Subject.
         /// </value>
-        public T Subject { get; protected set; }
+        public T Subject { get; private set; }
 
         /// <summary>
         ///     Subscribes the specified observer.
@@ -39,7 +48,7 @@ namespace Histrio
         ///     Gets the handled by.
         /// </summary>
         /// <param name="observer">The observer.</param>
-        public void GetHandledBy(IObserver observer)
+        public void GetHandledBy(Observer observer)
         {
             observer.OnNext(this);
         }

@@ -7,12 +7,12 @@ namespace Histrio
     {
         private bool _disposed;
 
-        internal MailBox(BlockingCollection<IMessage> blockingCollection)
+        internal MailBox(BlockingCollection<IObservable> blockingCollection)
         {
             Messages = blockingCollection;
         }
 
-        internal BlockingCollection<IMessage> Messages { get; private set; }
+        internal BlockingCollection<IObservable> Messages { get; private set; }
 
         /// <summary>
         ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
@@ -24,7 +24,7 @@ namespace Histrio
             GC.SuppressFinalize(this);
         }
 
-        internal void Add(IMessage message)
+        internal void Add(IObservable message)
         {
             Messages.Add(message);
         }

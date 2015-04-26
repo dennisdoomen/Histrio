@@ -5,15 +5,14 @@ namespace Histrio
     ///     using POCO (Plain Old CLR Objects).
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class Message<T> : Observable<T>, IMessage
+    public class Message<T> : Observable<T>
     {
         /// <summary>
         ///     Initializes a new instance of the <see cref="Message{T}" /> class.
         /// </summary>
         /// <param name="subject">The Subject.</param>
-        public Message(T subject)
+        public Message(T subject) : base(subject)
         {
-            Subject = subject;
         }
 
         /// <summary>

@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Histrio
@@ -15,8 +18,8 @@ namespace Histrio
             new TaskFactory(TaskCreationOptions.LongRunning, TaskContinuationOptions.None)
                 .StartNew(() =>
                 {
-                    var messages = mailBox.Messages;
-                    foreach (var message in messages.GetConsumingEnumerable())
+                    var messages = mailBox.Messages.GetConsumingEnumerable();
+                    foreach (var message in messages)
                     {
                         message.GetHandledBy(_behavior);
                     }

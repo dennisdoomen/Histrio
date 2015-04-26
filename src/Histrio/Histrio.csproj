@@ -49,12 +49,11 @@
     <Compile Include="Address.cs" />
     <Compile Include="Behavior.cs" />
     <Compile Include="Get.cs" />
+    <Compile Include="IObservable.cs" />
     <Compile Include="MailBox.cs" />
     <Compile Include="IActor.cs" />
     <Compile Include="IActorNamingService.cs" />
-    <Compile Include="IObserver.cs" />
     <Compile Include="IDispatcher.cs" />
-    <Compile Include="IMessage.cs" />
     <Compile Include="InMemoryActorNamingService.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="MessageExtensions.cs" />
