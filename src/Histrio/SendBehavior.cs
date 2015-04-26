@@ -22,10 +22,10 @@ namespace Histrio
         ///     handle itself in a strongly typed fashion by the behavior
         /// </summary>
         /// <typeparam name="T">The type of content the message enbodies</typeparam>
-        /// <param name="message">The message.</param>
-        public override void OnNext<T>(Observable<T> message)
+        /// <param name="observable">The message.</param>
+        public override void OnNext<T>(Observable<T> observable)
         {
-            Actor.Send(message.Subject, _address);
+            Actor.Send(observable.Subject, _address);
         }
     }
 }

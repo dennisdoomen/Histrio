@@ -4,7 +4,7 @@ namespace Histrio
 {
     /// <summary>
     /// </summary>
-    public abstract class Observer : IObserver
+    public abstract class Observer
     {
         /// <summary>
         ///     Accepts the specified message and checkes if the message can be handled by this behavior.
@@ -13,17 +13,17 @@ namespace Histrio
         /// </summary>
         /// ///
         /// <typeparam name="T">The type of content the message enbodies</typeparam>
-        /// <param name="message">The message.</param>
+        /// <param name="observable">The message.</param>
         /// <exception cref="InvalidOperationException">
         ///     The exception is thrown when the behavior can not handle this type of
         ///     message content
         /// </exception>
-        public virtual void OnNext<T>(Observable<T> message)
+        public virtual void OnNext<T>(Observable<T> observable)
         {
             var observer = this as IObserver<T>;
             if (observer != null)
             {
-                message.GetHandledBy(observer);
+                observable.GetHandledBy(observer);
             }
             else
             {

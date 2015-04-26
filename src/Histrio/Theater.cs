@@ -59,7 +59,7 @@ namespace Histrio
         /// <returns></returns>
         public Address CreateActor(Behavior behavior, string actorName)
         {
-            var mailBox = new MailBox(new BlockingCollection<IMessage>());
+            var mailBox = new MailBox(new BlockingCollection<IObservable>());
             var address = Actor.Create(behavior, actorName, mailBox, this);
             _localAddresses.Add(address, mailBox);
             return address;
@@ -109,8 +109,8 @@ namespace Histrio
             var address = message.To;
             if (_localAddresses.ContainsKey(address))
             {
-                var buffer = _localAddresses[address];
-                buffer.Add(message);
+                var mailBox = _localAddresses[address];
+                mailBox.Add(message);
             }
             else
             {
