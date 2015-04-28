@@ -1,8 +1,11 @@
 namespace Histrio.Tests.Factorial
 {
+    /// <summary>
+    /// Holds the result for the calculation of the factorial of a non-negative integer 
+    /// </summary>
     public class CalculatedFactorial
     {
-        public int Result { get; set; }
-        public int For { get; set; }
+        public uint Result { get; set; }
+        public uint For { get; set; }
     }
 }

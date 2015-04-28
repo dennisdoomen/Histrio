@@ -3,10 +3,10 @@ using System;
 namespace Histrio.Tests.Factorial
 {
     public class FactorialContinuationBehavior : Behavior, IObserver<CalculateFactorialFor>,
-        IObserver<FactorialCalculated>
+        IObserver<CalculatedFactorial>
     {
         private readonly Address _customer;
-        private readonly int _x;
+        private readonly uint _x;
 
         public FactorialContinuationBehavior(CalculateFactorialFor message)
         {
@@ -29,12 +29,21 @@ namespace Histrio.Tests.Factorial
             throw new NotImplementedException();
         }
 
-        void IObserver<FactorialCalculated>.OnCompleted()
+        /// <summary>
+        /// Notifies the observer that the provider has finished sending push-based notifications.
+        /// </summary>
+        /// <exception cref="System.NotImplementedException"></exception>
+        void IObserver<CalculatedFactorial>.OnCompleted()
         {
             throw new NotImplementedException();
         }
 
-        void IObserver<FactorialCalculated>.OnError(Exception error)
+        /// <summary>
+        /// Called when [error].
+        /// </summary>
+        /// <param name="error">The error.</param>
+        /// <exception cref="System.NotImplementedException"></exception>
+        void IObserver<CalculatedFactorial>.OnError(Exception error)
         {
             throw new NotImplementedException();
         }
@@ -44,7 +53,7 @@ namespace Histrio.Tests.Factorial
             throw new NotImplementedException();
         }
 
-        public void OnNext(FactorialCalculated message)
+        public void OnNext(CalculatedFactorial message)
         {
             var factorialCalculated = new CalculatedFactorial
             {

@@ -14,11 +14,11 @@ namespace Histrio.Tests.Factorial
             InlineData(1, 1),
             InlineData(3, 6),
             InlineData(4, 24)]
-        public void Then_factorial_of_x_is_calculated(int input, int expectedValue)
+        public void Then_factorial_of_x_is_calculated(uint input, uint expectedValue)
         {
             Theater theater = new Theater();
             Address customer = null;
-            var promiseOfTheActualValue = new TaskCompletionSource<CalculatedFactorial>();
+            TaskCompletionSource<CalculatedFactorial> promiseOfTheActualValue = new TaskCompletionSource<CalculatedFactorial>();
 
             Given(() =>
             {
