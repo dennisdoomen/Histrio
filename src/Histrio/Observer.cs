@@ -12,7 +12,6 @@ namespace Histrio
         ///     handle itself in a strongly typed fashion by an <see cref="IObserver{T}" /> that the concrete Obserer
         ///     also may implement
         /// </summary>
-        /// ///
         /// <typeparam name="T">The type of the subject the observable represents</typeparam>
         /// <param name="observable">The observable.</param>
         /// <exception cref="InvalidOperationException">
